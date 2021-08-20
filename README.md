@@ -4,11 +4,11 @@ This library provides various generators of stochastic processes modelling real 
 price data can be used in Monte Carlo simulations (or similar statistical experiments) and potentially even to train ML
 algorithms. 
 
-Currently the implemented generators are
+Currently the implemented/planned generators are
 
 - [Geometric Wiener motion](https://en.wikipedia.org/wiki/Geometric_Brownian_motion)
 - [Geometric Lévy flights](https://en.wikipedia.org/wiki/L%C3%A9vy_process)
-- [Ising](https://borab96.github.io/IsingPriceDynamics/ising.html)
+- [Ising](https://borab96.github.io/IsingPriceDynamics/ising.html) (TODO)
 
 ## Installation
 
@@ -38,7 +38,7 @@ The `np.ndarray` output is accessed through
 ``
 price_proc.process
 ``
-## Custom generator
+## Custom process
 
 Custom generators can be implemented by subclassing ``Process``. Here is how one might implement the gamma process
 for instance
