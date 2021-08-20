@@ -56,3 +56,4 @@ class Gamma(Process):
         self.process = np.cumsum(self.rvs, axis=0)
 ````
 
+See [this](examples/gamma_sampled_price_process.html) for a more advanced use case.
