@@ -20,11 +20,11 @@ Currently the implemented generators are
 
 The standard model of stochastic price dynamics is the SDE
 
-<img src="https://latex.codecogs.com/svg.image?dP_t&space;=&space;\mu&space;S_t&space;dt&plus;\sigma&space;S_tdW_t" title="dP_t = \mu S_t dt+\sigma S_tdW_t" />
+<img src="https://latex.codecogs.com/svg.image?\color[rgb]{0.36,&space;0.54,&space;0.66}dP_t&space;=&space;\mu&space;S_t&space;dt&plus;\sigma&space;S_tdW_t" title="dP_t = \mu S_t dt+\sigma S_tdW_t" />
 
 with solution the *geometric Brownian motion*
 
-<img src="https://latex.codecogs.com/svg.image?\bg_white&space;P_t&space;=&space;P_0e^{\mu&space;t&plus;\frac{1}{2}t^2&space;\sigma}" title="\bg_white P_t = P_0e^{\mu t+\frac{1}{2}t^2 \sigma}" />
+<img src="https://latex.codecogs.com/svg.image?\color[rgb]{0.36,&space;0.54,&space;0.66}P_t&space;=&space;P_0e^{\mu&space;t&plus;\frac{1}{2}t^2&space;\sigma}" title="\color[rgb]{0.36, 0.54, 0.66}P_t = P_0e^{\mu t+\frac{1}{2}t^2 \sigma}" />
 
 In order to get, say 10 samples of a 1000 point process, one would run
 
