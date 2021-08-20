@@ -1,13 +1,8 @@
-import numpy as np
-import scipy as sc
-from scipy import stats
-from math import factorial
-from scipy.stats import norm, uniform, levy_stable
+from scipy.stats import levy_stable, norm
 import matplotlib.pyplot as plt
-from distributions import *
+import numpy as np
+from .helpers import *
 
-def normalize(vec):
-    return vec/np.max(np.abs(vec))
 
 class Process():
 
@@ -23,7 +18,8 @@ class Process():
             self.n_samples = 1
         self.size = size
         self.initial = initial
-        self.t = np.linspace(0, T, self.n_steps)
+        self.T = T
+        self.t = np.linspace(0, self.T, self.n_steps)
         self.process = None
         self.log_process = None
 
@@ -32,13 +28,22 @@ class Process():
         self.process = np.exp(self.log_process*vol+(drift-0.5*vol**2))
         return self
 
-    def plot(self):
+    def plot(self, title=None):
         plt.figure(figsize=(10, 5))
         plt.plot(self.t, self.process)
         plt.xlabel(r'$t$')
-        plt.ylabel(r'$P_t$')
+        plt.title(title)
         plt.show()
 
+    def resample(self, resampling_proc):
+        if resampling_proc.shape != self.process.shape:
+            raise IndexError(f"The indices of the resampling process are out of bounds for original shape of {self.process.shape}")
+        idx = self.T*normalize(resampling_proc)*(self.n_steps-1)
+        self.process = self.process[idx.astype("int")][:, 0, :]
+        return self
+
+    def returns(self, idx=0, order=1):
+        return normalize(integer_difference(self.process[:, idx], self.t, n=order))
 
 
 class Gaussian(Process):
@@ -77,3 +82,4 @@ class Levy(Process):
 # Levy(1.5, 0, [100, 5]).plot_pdf()
 
 Gaussian([1000, 10]).to_geometric(0, 0.04).plot()
+norm.rvs()
