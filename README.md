@@ -20,9 +20,7 @@ Currently the implemented generators are
 
 The standard model of stochastic price dynamics is the SDE
 
-$$
-dP_t = \mu S_t dt+\sigma S_tdW_t
-$$
+$$dP_t = \mu S_t dt+\sigma S_tdW_t$$
 
 ### Custom generator
 
