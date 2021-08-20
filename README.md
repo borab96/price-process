@@ -24,7 +24,7 @@ The standard model of stochastic price dynamics is the SDE
 
 with solution the *geometric Brownian motion*
 
-<img src="https://latex.codecogs.com/svg.image?P_t&space;=&space;P_0e^{\mu&space;t&plus;\frac{1}{2}t^2&space;\sigma}" title="P_t = P_0e^{\mu t+\frac{1}{2}t^2 \sigma}" />
+<img src="https://latex.codecogs.com/svg.image?\bg_white&space;P_t&space;=&space;P_0e^{\mu&space;t&plus;\frac{1}{2}t^2&space;\sigma}" title="\bg_white P_t = P_0e^{\mu t+\frac{1}{2}t^2 \sigma}" />
 
 In order to get, say 10 samples of a 1000 point process, one would run
 
