@@ -12,9 +12,9 @@ potentially as training data.
 
 Currently the implemented generators:
 
-- [Geometric Wiener motion](https://en.wikipedia.org/wiki/Geometric_Brownian_motion)
-- [Geometric Lévy flights](https://en.wikipedia.org/wiki/L%C3%A9vy_process)
-- [Ising](https://borab96.github.io/IsingPriceDynamics/ising.html)
+>- [Geometric Wiener motion](https://en.wikipedia.org/wiki/Geometric_Brownian_motion)
+>- [Geometric Lévy flights](https://en.wikipedia.org/wiki/L%C3%A9vy_process)
+>- [Ising](https://borab96.github.io/IsingPriceDynamics/ising.html)
 
 Planned features:
 
