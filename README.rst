@@ -14,7 +14,7 @@ Currently the implemented/planned generators are
 
 * `Geometric Wiener motion <https://en.wikipedia.org/wiki/Geometric_Brownian_motion>`_
 * `Geometric Lévy flights <https://en.wikipedia.org/wiki/L%C3%A9vy_process>`_
-* `Ising <https://borab96.github.io/IsingPriceDynamics/ising.html>`_ (TODO)
+* `Ising <https://borab96.github.io/IsingPriceDynamics/ising.html>`_ 
 
 Installation
 ------------
@@ -24,6 +24,9 @@ for most recent version.
 
 Basic usage
 -----------
+
+The textbook stochastic price model
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The standard model of stochastic price dynamics is the SDE
 
@@ -41,10 +44,34 @@ In order to display, say 10 samples of a 1000 point process, one would run
    price_proc = Gaussian([1000, 10]).to_geometric(0, 0.04)
    price_proc.plot()
 
-:raw-html-m2r:`<img src="examples/figures/exp_gaussian_ex.png">`
 
-The ``np.ndarray`` output is accessed through\ :raw-html-m2r:`<br>`
-``price_proc.process``
+.. image:: ../examples/figures/exp_gaussian_ex.png
+   :target: examples/figures/exp_gaussian_ex.png
+   :alt: out:exp_gaussian
+
+
+The ``np.ndarray`` output is accessed through ``price_proc.process``
+
+Ising price model
+^^^^^^^^^^^^^^^^^
+
+Perhaps the most interesting generator that is currently implemented is the Ising model of price dynamics. This
+is a statistical mechanical model that captures the competition between going with the local consensus trade decision and
+contradiciting the consensus. Please refer to my `notebook <https://borab96.github.io/IsingPriceDynamics/ising.html>`_ for details of the model.
+
+.. code-block::
+
+   from price_process.process import *
+   Ising(0.05, 500, [1000, 10]).plot()
+
+
+.. image:: ../examples/figures/ising_ex.png
+   :target: examples/figures/ising_ex.png
+   :alt: out:ising
+
+
+Note that ``Ising(...).process`` is already a price process so one should not evoke ``.to_geometric(drift, vol)``. See
+the documentation for all the parameters of this model and recommended ranges. 
 
 Custom process
 --------------

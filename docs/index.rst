@@ -6,7 +6,7 @@
 
 
 
-.. include:: ../_README.rst
+.. include:: ../README.rst
 
 
 Docs

@@ -8,7 +8,7 @@ Currently the implemented/planned generators are
 
 - [Geometric Wiener motion](https://en.wikipedia.org/wiki/Geometric_Brownian_motion)
 - [Geometric Lévy flights](https://en.wikipedia.org/wiki/L%C3%A9vy_process)
-- [Ising](https://borab96.github.io/IsingPriceDynamics/ising.html) (TODO)
+- [Ising](https://borab96.github.io/IsingPriceDynamics/ising.html) 
 
 ## Installation
 
@@ -16,6 +16,8 @@ Currently the implemented/planned generators are
 for most recent version.
 
 ## Basic usage
+
+### The textbook stochastic price model
 
 The standard model of stochastic price dynamics is the SDE
 
@@ -35,11 +37,28 @@ price_proc.plot()
 
 <img src="examples/figures/exp_gaussian_ex.png">
 
+[comment]: <> (![out:exp_gaussian]&#40;examples/figures/exp_gaussian_ex.png&#41;)
 
-The `np.ndarray` output is accessed through  
-``
-price_proc.process
-``
+The `np.ndarray` output is accessed through `price_proc.process`
+
+### Ising price model
+
+Perhaps the most interesting generator that is currently implemented is the Ising model of price dynamics. This
+is a statistical mechanical model that captures the competition between going with the local consensus trade decision and
+contradiciting the consensus. Please refer to my [notebook](https://borab96.github.io/IsingPriceDynamics/ising.html) for details of the model.
+
+````
+from price_process.process import *
+Ising(0.05, 500, [1000, 10]).plot()
+````
+
+<img src="examples/figures/ising_ex.png">
+
+[comment]: <> (![out:ising]&#40;examples/figures/ising_ex.png&#41;)
+
+Note that `Ising(...).process` is already a price process so one should not evoke `.to_geometric(drift, vol)`. See
+the documentation for all the parameters of this model and recommended ranges. 
+
 ## Custom process
 
 Custom generators can be implemented by subclassing ``Process``. The only requirement is that `self.size` to be
