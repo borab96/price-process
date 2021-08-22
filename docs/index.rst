@@ -6,6 +6,8 @@
 
 
 
+.. include:: ../_README.rst
+
 
 Docs
 ======
