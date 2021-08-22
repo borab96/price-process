@@ -18,8 +18,8 @@ Currently the implemented generators:
 
 Planned features:
 
--[ ] Generative adversarial network (GAN) implementation
--[ ] Improved interface with `ising.py` 
+- [ ] Generative adversarial network (GAN) implementation
+- [ ] Improved interface with `ising.py` 
 
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/borab96/price_process/graphs/commit-activity)
 [![Documentation Status](https://readthedocs.org/projects/ansicolortags/badge/?version=latest)](https://price-process.readthedocs.io/en/latest/?badge=latest)

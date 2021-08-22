@@ -12,7 +12,7 @@
 Docs
 ======
 
-The Process() base class
+The Process base class
 -------------------------
 
 .. autoclass:: price_process.process.Process
@@ -21,21 +21,21 @@ The Process() base class
     :inherited-members:
 
 
-Gaussian() subclass of Brownian motion
+Gaussian subclass of Brownian motion
 ---------------------------------------
 
 .. autoclass:: price_process.process.Gaussian
     :special-members: __init__
     :members:
 
-Levy() subclass of Levy flights
+Levy subclass of Levy flights
 ---------------------------------------
 
 .. autoclass:: price_process.process.Levy
     :special-members: __init__
     :members:
 
-Ising() subclass of Ising price dynamics
+Ising subclass of Ising price dynamics
 ------------------------------------------
 
 .. autoclass:: price_process.process.Ising
