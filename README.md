@@ -1,5 +1,9 @@
 # Price process generator
 
+ [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity)
+[![Documentation Status](https://readthedocs.org/projects/ansicolortags/badge/?version=latest)](https://price-process.readthedocs.io/en/latest/?badge=latest)
+[![Binder](https://binder.pangeo.io/badge_logo.svg)](TODO)
+
 This library provides various vectorized generators of stochastic processes modelling price dynamics. 
 The generated synthetic price data can be used in Monte Carlo simulations (or similar statistical experiments) and 
 potentially as training data. 
