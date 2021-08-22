@@ -1,22 +1,24 @@
 
 
 <h1 align="center">Price process generator</h1>
-<p align="center">Sophisticated synthetic price data in one line</p>
+<p align="center">A synthetic data source</p>
 
 
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/borab96/price_process/graphs/commit-activity)
-[![Documentation Status](https://readthedocs.org/projects/ansicolortags/badge/?version=latest)](https://price-process.readthedocs.io/en/latest/?badge=latest)
-[![Binder](https://binder.pangeo.io/badge_logo.svg)](TODO)
+
 
 This library provides various vectorized generators of stochastic processes modelling price dynamics. 
 The generated synthetic price data can be used in Monte Carlo simulations (or similar statistical experiments) and 
 potentially as training data. 
 
-Currently the implemented/planned generators are
+Currently the implemented generators are
 
 - [Geometric Wiener motion](https://en.wikipedia.org/wiki/Geometric_Brownian_motion)
 - [Geometric Lévy flights](https://en.wikipedia.org/wiki/L%C3%A9vy_process)
-- [Ising](https://borab96.github.io/IsingPriceDynamics/ising.html) 
+- [Ising](https://borab96.github.io/IsingPriceDynamics/ising.html)
+
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/borab96/price_process/graphs/commit-activity)
+[![Documentation Status](https://readthedocs.org/projects/ansicolortags/badge/?version=latest)](https://price-process.readthedocs.io/en/latest/?badge=latest)
+[![Binder](https://binder.pangeo.io/badge_logo.svg)](TODO)
 
 ## Installation
 
