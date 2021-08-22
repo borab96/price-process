@@ -3,7 +3,7 @@ from os import path
 
 here = path.abspath(path.dirname(__file__))
 
-with open(path.join(here, 'README.md'), encoding='utf-8') as f:
+with open(path.join(here, '_README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(name='price_process',
@@ -17,6 +17,6 @@ setup(name='price_process',
       keywords=['finance','stochastic process','mathematical finance','SDE','investing', 'trading'],
       license='MIT',
       python_requires='>=3',
-      requires=['numpy', 'scipy', 'matplotlib'],
-      install_requires=['numpy', 'scipy', 'matplotlib'],
+      requires=['numpy', 'scipy', 'matplotlib', 'tqdm'],
+      install_requires=['numpy', 'scipy', 'matplotlib', 'tqdm'],
       zip_safe=False)
