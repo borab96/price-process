@@ -10,11 +10,16 @@ This library provides various vectorized generators of stochastic processes mode
 The generated synthetic price data can be used in Monte Carlo simulations (or similar statistical experiments) and 
 potentially as training data. 
 
-Currently the implemented generators are
+Currently the implemented generators:
 
 - [Geometric Wiener motion](https://en.wikipedia.org/wiki/Geometric_Brownian_motion)
 - [Geometric Lévy flights](https://en.wikipedia.org/wiki/L%C3%A9vy_process)
 - [Ising](https://borab96.github.io/IsingPriceDynamics/ising.html)
+
+Planned features:
+
+-[ ] Generative adversarial network (GAN) implementation
+-[ ] Improved interface with `ising.py` 
 
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/borab96/price_process/graphs/commit-activity)
 [![Documentation Status](https://readthedocs.org/projects/ansicolortags/badge/?version=latest)](https://price-process.readthedocs.io/en/latest/?badge=latest)
