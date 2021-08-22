@@ -1,8 +1,8 @@
 # Price process generator
 
-This library provides various generators of stochastic processes modelling real price processes. The generated synthetic
-price data can be used in Monte Carlo simulations (or similar statistical experiments) and potentially even to train ML
-algorithms. 
+This library provides various vectorized generators of stochastic processes modelling price dynamics. 
+The generated synthetic price data can be used in Monte Carlo simulations (or similar statistical experiments) and 
+potentially as training data. 
 
 Currently the implemented/planned generators are
 
@@ -32,15 +32,20 @@ from price_process.process import *
 price_proc = Gaussian([1000, 10]).to_geometric(0, 0.04)
 price_proc.plot()
 ````
-![out1](examples/figures/exp_gaussian_ex.png)
 
-The `np.ndarray` output is accessed through 
+<img src="examples/figures/exp_gaussian_ex.png">
+
+
+The `np.ndarray` output is accessed through  
 ``
 price_proc.process
 ``
 ## Custom process
 
-Custom generators can be implemented by subclassing ``Process``. Here is how one might implement the gamma process
+Custom generators can be implemented by subclassing ``Process``. The only requirement is that `self.size` to be
+given as an input of shape `[n_steps, n_samples]` and the desired process to be assigned to `self.process`.
+
+Here is how one might implement the gamma process
 for instance
 
 ````
