@@ -1,6 +1,10 @@
-# Price process generator
 
- [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/borab96/price_process/graphs/commit-activity)
+
+<h1 align="center">Price process generator</h1>
+<p align="center">Sophisticated synthetic price data in one line</p>
+
+
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/borab96/price_process/graphs/commit-activity)
 [![Documentation Status](https://readthedocs.org/projects/ansicolortags/badge/?version=latest)](https://price-process.readthedocs.io/en/latest/?badge=latest)
 [![Binder](https://binder.pangeo.io/badge_logo.svg)](TODO)
 
