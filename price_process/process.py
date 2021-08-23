@@ -49,7 +49,7 @@ class Process():
             Process
         """
         self.log_process = self.process
-        self.process = np.exp(self.log_process*vol+(drift-0.5*vol**2))
+        self.process = normalize(np.exp(self.log_process*vol+(drift-0.5*vol**2)))
         return self
 
     def plot(self, title=None, figsize=(10, 5)):
@@ -88,7 +88,7 @@ class Process():
         if resampling_proc.shape != self.process.shape:
             raise IndexError(f"The indices of the resampling process are out of bounds for original shape of {self.process.shape}")
         idx = self.T*normalize(resampling_proc)*(self.n_steps-1)
-        self.process = self.process[idx.astype("int")][:, 0, :]
+        self.process = normalize(self.process[idx.astype("int")][:, 0, :])
         return self
 
     def returns(self, idx=0, order=1):
@@ -135,7 +135,7 @@ class Gaussian(Process):
         if self.mu != 0 or self.std != 1:
             raise Warning("Using non-standard underlying process")
         self.rvs = norm.rvs(mu, std, self.size)
-        self.process = np.cumsum(self.rvs, axis=0)
+        self.process = normalize(np.cumsum(self.rvs, axis=0))
 
 
 class Levy(Process):
@@ -168,7 +168,7 @@ class Levy(Process):
         self.rvs = levy_stable.rvs(self.alpha, self.beta, size=self.size, loc=mu, scale=std**2)
         if self.mu != 0 or self.std != 1:
             raise Warning("Using non-standard underlying process")
-        self.process = np.cumsum(self.rvs, axis=0)
+        self.process = normalize(np.cumsum(self.rvs, axis=0))
 
     def plot_pdf(self, bounds=(-7, 7), n=200):
         """

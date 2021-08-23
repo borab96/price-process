@@ -56,6 +56,25 @@ price_proc.plot()
 
 The `np.ndarray` output is accessed through `price_proc.process`
 
+### The Levy stable process
+
+The most immediate generalization to the Wiener process (Brownian motion) that
+is still relevant to asset pricing is the [Levy stable process](https://galton.uchicago.edu/~lalley/Courses/385/LevyProcesses.pdf) which introduces two parameters
+that respectively changes the tail weight and skewness as compared to the normal 
+distribution. 
+
+As in the previous example, we run
+
+````
+from price_process.process import *
+Levy(1.5, 0.02, [1000, 10]).to_geometric(0, 0.05).plot().plot()
+````
+
+<img src="examples/figures/exp_levy_ex.png">
+
+
+
+
 ### Ising price model
 
 Perhaps the most interesting generator that is currently implemented is the Ising model of price dynamics. This
@@ -95,4 +114,5 @@ class Gamma(Process):
         self.process = np.cumsum(self.rvs, axis=0)
 ````
 
-See [this](https://datalore.jetbrains.com/view/notebook/7ePCXEffpdZr2dA5ySdwr1) for a more advanced use case.
+See [this notebook](https://datalore.jetbrains.com/view/notebook/7ePCXEffpdZr2dA5ySdwr1) for a more advanced use case (Gamma sampled
+Wiener process).
