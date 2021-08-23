@@ -7,7 +7,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(name='price_process',
-      version='1.1.0',
+      version='1.1.2',
       description='Library for generating various stochastic price sequences ',
       long_description=long_description,
       long_description_content_type='text/markdown',
@@ -19,4 +19,7 @@ setup(name='price_process',
       python_requires='>=3',
       requires=['numpy', 'scipy', 'matplotlib', 'tqdm'],
       install_requires=['numpy', 'scipy', 'matplotlib', 'tqdm'],
-      zip_safe=False)
+      zip_safe=False,
+      packages=["price_process"],
+      package_dir={"price_process": "price_process"},
+      py_modules=["price_process.process", "price_process.helpers","price_process.ising"]),
