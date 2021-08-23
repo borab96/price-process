@@ -1,1 +1,5 @@
 price_process
+numpy
+scipy
+tqdm
+matplotlib
