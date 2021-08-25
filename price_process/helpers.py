@@ -15,8 +15,11 @@ def dist(i, j):
     return np.sqrt(i ** 2 + j ** 2)
 
 
-def normalize(vec):
-    return vec/np.max(np.abs(vec))
+def normalize(vec, idx="All"):
+    if idx=="All":
+        return vec/np.max(np.abs(vec))
+    else:
+        return vec/vec[idx]
 
 
 def integer_difference(vec, t, n=1):

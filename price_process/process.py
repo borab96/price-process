@@ -28,6 +28,7 @@ class Process():
         self.initial = initial
         self.T = T
         self.t = np.linspace(0, self.T, self.n_steps)
+        self.dt = abs(self.t[1]-self.t[0])
         self.process = None
         self.log_process = None
 
@@ -49,10 +50,12 @@ class Process():
             Process
         """
         self.log_process = self.process
-        self.process = normalize(np.exp(self.log_process*vol+(drift-0.5*vol**2)))
+        self.vol = vol
+        self.drift = drift
+        self.process = normalize(np.exp(self.log_process*vol*np.sqrt(self.dt)+self.dt*(drift-0.5*vol**2)),0)
         return self
 
-    def plot(self, title=None, figsize=(10, 5)):
+    def plot(self, title=None, figsize=(10, 5), num_to_plot="All"):
         """
         Plots `self.process`
 
@@ -67,7 +70,12 @@ class Process():
             Plot of process
         """
         plt.figure(figsize=figsize)
-        plt.plot(self.t, self.process)
+        if num_to_plot=='All':
+            plt.plot(self.t, self.process)
+        elif num_to_plot < self.size[1]:
+            plt.plot(self.t, self.process[:, 0:num_to_plot])
+        else:
+            raise IndexError(f"num_to_plot must not be greater than sample size")
         plt.xlabel(r'$t$')
         plt.title(title)
         plt.show()
@@ -88,7 +96,7 @@ class Process():
         if resampling_proc.shape != self.process.shape:
             raise IndexError(f"The indices of the resampling process are out of bounds for original shape of {self.process.shape}")
         idx = self.T*normalize(resampling_proc)*(self.n_steps-1)
-        self.process = normalize(self.process[idx.astype("int")][:, 0, :])
+        self.process = normalize(self.process[idx.astype("int")][:, 0, :], 0)
         return self
 
     def returns(self, idx=0, order=1):
@@ -135,7 +143,7 @@ class Gaussian(Process):
         if self.mu != 0 or self.std != 1:
             raise Warning("Using non-standard underlying process")
         self.rvs = norm.rvs(mu, std, self.size)
-        self.process = normalize(np.cumsum(self.rvs, axis=0))
+        self.process = np.cumsum(self.rvs, axis=0)
 
 
 class Levy(Process):
@@ -168,7 +176,7 @@ class Levy(Process):
         self.rvs = levy_stable.rvs(self.alpha, self.beta, size=self.size, loc=mu, scale=std**2)
         if self.mu != 0 or self.std != 1:
             raise Warning("Using non-standard underlying process")
-        self.process = normalize(np.cumsum(self.rvs, axis=0))
+        self.process = normalize(np.cumsum(self.rvs, axis=0),0)
 
     def plot_pdf(self, bounds=(-7, 7), n=200):
         """
@@ -224,7 +232,7 @@ class Ising(Process):
         verbose : bool, optional
         """
         super().__init__(size, initial=initial, T=T)
-        self.process = normalize(MCising(vol, window, size, N=N, J=J, h=h, show_progress=True, verbose=False).price)
+        self.process = normalize(MCising(vol, window, size, N=N, J=J, h=h, show_progress=True, verbose=False).price, 0)
         self.t = np.linspace(0, self.T, len(self.process))
         self.size = self.process.shape
 
